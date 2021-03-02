@@ -12,7 +12,7 @@
 // }
 
 export const userGet=(data) => {
-  console.log('data.get');
+  console.log('data.get',data);
   return async dispatch => {
     dispatch({
       type: 'USER_GET',

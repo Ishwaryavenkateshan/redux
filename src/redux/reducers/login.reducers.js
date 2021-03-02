@@ -1,6 +1,10 @@
 
 import {combineReducers} from 'redux';
-export const geod = (state = {}, action) => {
+let initialState ={
+  username:''
+}
+export const geod = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     // case 'ACTIVATE_GEOD':
     //   return {...state,geod:action.data};
@@ -14,5 +18,5 @@ export const geod = (state = {}, action) => {
 };
 
 export const reducers = combineReducers({
-
+geod,
 });

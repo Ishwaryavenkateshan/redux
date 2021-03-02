@@ -5,20 +5,39 @@ import {userGet} from './redux/actions/login.actions'
 
 // App.js
 export class App extends React.Component {
+  constructor(props){
+    super(props);
+    
+    this.state = {
+      username : ''
+    }
+    
+    //this.updateInput = this.updateInput.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+  updateInput(event){
+    this.setState({username : event.target.value})
+    }
+
+    handleSubmit=()=>{
+      console.log(this.props);
+      this.props.userGet(this.state.username)
+      }
+     
   render() {
     console.log(this.props);
     return (
       <div>
-        <h1>{this.props.geod.title || 'Hello World!'}</h1>
-        <input type='text' name='name' />
+        {/* <h1>{this.props.geod.title || 'Hello World!'}</h1> */}
+        <input type='text' name='name' value = {this.state.username} onChange={(event)=>{this.updateInput(event)}} />
         
           <button
-            onClick={() =>
-              this.props.userGet({ data: '' })
-            }
+            onClick={()=>this.handleSubmit()}
           >
             Click Me!
           </button>
+          <div>{this.props.geod.username}</div>
       </div>
     );
   }
